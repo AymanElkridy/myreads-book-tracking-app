@@ -1,46 +1,76 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const BookDetails = ({ book, library }) => {
-
   const SHELVES = [
-    {shelf: 'currentlyReading', title: 'Reading'},
-    {shelf: 'wantToRead', title: 'Want to Read'},
-    {shelf: 'read', title: 'Read Already'},
-    {shelf: 'none', title: 'None'}
+    { shelf: 'currentlyReading', title: 'Reading' },
+    { shelf: 'wantToRead', title: 'Want to Read' },
+    { shelf: 'read', title: 'Read Already' },
+    { shelf: 'none', title: 'None' },
   ]
 
-  const bookShelf = library.filter(lb => lb.id === book.id).length ? library.filter(lb => lb.id === book.id)[0].shelf : 'none'
-  const shelfTitle = SHELVES.filter(shelf => shelf.shelf === bookShelf)[0].title
+  const bookShelf = library.filter((lb) => lb.id === book.id).length
+    ? library.filter((lb) => lb.id === book.id)[0].shelf
+    : 'none'
+  const shelfTitle = SHELVES.filter((shelf) => shelf.shelf === bookShelf)[0]
+    .title
 
   return (
     <Container>
       <Wrapper>
         <Left>
-          <img className="book-cover" src={book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/160x200'} alt={book.title}/>
+          <img
+            className="book-cover"
+            src={
+              book.imageLinks
+                ? book.imageLinks.thumbnail
+                : 'https://via.placeholder.com/160x200'
+            }
+            alt={book.title}
+          />
         </Left>
         <Right>
-          {book.title && (
-            <h1 className="book-title">{book.title}</h1>
-          )}
+          {book.title && <h1 className="book-title">{book.title}</h1>}
           {book.authors && (
-            <p><strong>Author(s):</strong> {book.authors.reduce((str, author, i, arr) => str += i === arr.length - 1 ? author : `${author}, `, '')}</p>
+            <p>
+              <strong>Author(s):</strong>{' '}
+              {book.authors.reduce(
+                (str, author, i, arr) =>
+                  (str += i === arr.length - 1 ? author : `${author}, `),
+                ''
+              )}
+            </p>
           )}
           {book.publishedDate && (
-            <p><strong>Publishing Date:</strong> {book.publishedDate}</p>
+            <p>
+              <strong>Publishing Date:</strong> {book.publishedDate}
+            </p>
           )}
           {book.description && (
             <div>
-              <p className="desc"><strong>Description:</strong></p>
+              <p className="desc">
+                <strong>Description:</strong>
+              </p>
               <p className="desc">{book.description}</p>
             </div>
           )}
           {book.categories && (
-            <p><strong>Categories:</strong> {book.categories.reduce((str, category, i, arr) => str += i === arr.length - 1 ? category : `${category}, `, '')}</p>
+            <p>
+              <strong>Categories:</strong>{' '}
+              {book.categories.reduce(
+                (str, category, i, arr) =>
+                  (str += i === arr.length - 1 ? category : `${category}, `),
+                ''
+              )}
+            </p>
           )}
           {book.language && (
-            <p><strong>Language:</strong> {book.language.toUpperCase()}</p>
+            <p>
+              <strong>Language:</strong> {book.language.toUpperCase()}
+            </p>
           )}
-          <p><strong>Shelf:</strong> {shelfTitle}</p>
+          <p>
+            <strong>Shelf:</strong> {shelfTitle}
+          </p>
         </Right>
       </Wrapper>
     </Container>

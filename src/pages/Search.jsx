@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
-import styled from "styled-components"
-import { search } from "../BooksAPI"
-import Navbar from "../components/Navbar"
-import SearchBar from "../components/SearchBar"
-import SearchResults from "../components/SearchResults"
+import { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import { search } from '../BooksAPI'
+import Navbar from '../components/Navbar'
+import SearchBar from '../components/SearchBar'
+import SearchResults from '../components/SearchResults'
 
 const Search = ({ libraryBooks, reloadShelves }) => {
   document.title = 'MyReads - Search'
@@ -22,9 +22,13 @@ const Search = ({ libraryBooks, reloadShelves }) => {
 
   return (
     <Container>
-      <Navbar currentPage='search'/>
-      <SearchBar query={searchQuery} setQuery={setSearchQuery}/>
-      <SearchResults books={searchBooks} library={libraryBooks} reloadShelves={reloadShelves}/>
+      <Navbar currentPage="search" />
+      <SearchBar query={searchQuery} setQuery={setSearchQuery} />
+      <SearchResults
+        books={searchBooks}
+        library={libraryBooks}
+        reloadShelves={reloadShelves}
+      />
     </Container>
   )
 }

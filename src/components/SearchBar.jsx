@@ -1,10 +1,15 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const SearchBar = ({ query, setQuery }) => {
   return (
     <Container>
       <Wrapper>
-        <SearchInput value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search for books ..." autoFocus/>
+        <SearchInput
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search for books ..."
+          autoFocus
+        />
       </Wrapper>
     </Container>
   )

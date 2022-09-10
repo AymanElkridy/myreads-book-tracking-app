@@ -1,24 +1,29 @@
-import styled from "styled-components"
-import BookCard from "./BookCard"
+import styled from 'styled-components'
+import BookCard from './BookCard'
 
 const BookShelf = ({ title, books, reloadShelves }) => {
   return (
     <Container>
-      <Title>
-        {title}
-      </Title>
+      <Title>{title}</Title>
       <hr />
       {books.length ? (
         <Wrapper>
-          {books.map(book => <BookCard
-            key={book.id}
-            shelf={book.shelf ? book.shelf : 'none'}
-            page='library'
-            title={book.title}
-            authors={book.authors}
-            thumbnail={book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/160x200'}
-            bookId={book.id}
-            reloadShelves={reloadShelves}/>)}
+          {books.map((book) => (
+            <BookCard
+              key={book.id}
+              shelf={book.shelf ? book.shelf : 'none'}
+              page="library"
+              title={book.title}
+              authors={book.authors}
+              thumbnail={
+                book.imageLinks
+                  ? book.imageLinks.thumbnail
+                  : 'https://via.placeholder.com/160x200'
+              }
+              bookId={book.id}
+              reloadShelves={reloadShelves}
+            />
+          ))}
         </Wrapper>
       ) : (
         <Wrapper>
@@ -36,7 +41,7 @@ const Container = styled.div`
   & hr {
     width: 1200px;
     @media screen and (max-width: 1240px) {
-    width: 1080px;
+      width: 1080px;
     }
     @media screen and (max-width: 1120px) {
       width: 880px;

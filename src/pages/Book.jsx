@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
-import { get } from "../BooksAPI"
-import styled from "styled-components"
-import Navbar from "../components/Navbar"
-import { useParams } from "react-router-dom"
-import BookDetails from "../components/BookDetails"
+import { useEffect, useState } from 'react'
+import { get } from '../BooksAPI'
+import styled from 'styled-components'
+import Navbar from '../components/Navbar'
+import { useParams } from 'react-router-dom'
+import BookDetails from '../components/BookDetails'
 
 const Book = ({ libraryBooks, reloadShelves }) => {
   const [bookLoaded, setBookLoaded] = useState(false)
@@ -21,24 +21,36 @@ const Book = ({ libraryBooks, reloadShelves }) => {
 
   useEffect(() => {
     bookDetails.title && setBookLoaded(true)
-    document.title = bookDetails.title ? 'MyReads - "' + bookDetails.title : "MyReads"
-    document.title += bookDetails.authors ? '" by '
-    + bookDetails.authors.reduce((str, author, i, arr) => str += i === arr.length - 1 ? author : `${author}, `, '')
-  : ''
+    document.title = bookDetails.title
+      ? 'MyReads - "' + bookDetails.title
+      : 'MyReads'
+    document.title += bookDetails.authors
+      ? '" by ' +
+        bookDetails.authors.reduce(
+          (str, author, i, arr) =>
+            (str += i === arr.length - 1 ? author : `${author}, `),
+          ''
+        )
+      : ''
   }, [bookDetails])
 
   return (
     <Container>
-      <Navbar currentPage='book' />
-      {
-        bookLoaded ? (
-            <BookDetails book={bookDetails} library={libraryBooks} reloadShelves={reloadShelves}/>
-        ) : (
-          <div className="loader-container">
-            <img src="https://cdn.dribbble.com/users/411641/screenshots/4405331/media/1b59c76446403889df4947b5c028680c.gif" alt="loading" />
-          </div>
-        )
-      }
+      <Navbar currentPage="book" />
+      {bookLoaded ? (
+        <BookDetails
+          book={bookDetails}
+          library={libraryBooks}
+          reloadShelves={reloadShelves}
+        />
+      ) : (
+        <div className="loader-container">
+          <img
+            src="https://cdn.dribbble.com/users/411641/screenshots/4405331/media/1b59c76446403889df4947b5c028680c.gif"
+            alt="loading"
+          />
+        </div>
+      )}
     </Container>
   )
 }

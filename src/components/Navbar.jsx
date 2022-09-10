@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom"
-import styled from "styled-components"
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 const Navbar = ({ currentPage }) => {
   return (
@@ -7,21 +7,19 @@ const Navbar = ({ currentPage }) => {
       <Wrapper currentPage={currentPage}>
         <Links>
           <LinkWrapper className="library">
-            <Link to='/'>
+            <Link to="/">
               <span>My Library</span>
               <span className="material-icons-outlined">book</span>
             </Link>
           </LinkWrapper>
           <LinkWrapper className="search">
-            <Link to='/search'>
+            <Link to="/search">
               <span>Search</span>
               <span className="material-icons-outlined">search</span>
             </Link>
           </LinkWrapper>
         </Links>
-        <Header>
-          MyReads
-        </Header>
+        <Header>MyReads</Header>
         <FillerComponent />
       </Wrapper>
     </Container>
@@ -41,7 +39,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   width: 1200px;
-  & div.${props => props.currentPage} {
+  & div.${(props) => props.currentPage} {
     border-bottom: 2px solid var(--light);
     padding-bottom: 6px;
     font-weight: 500;
