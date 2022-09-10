@@ -5,6 +5,8 @@ import BookShelf from "../components/BookShelf"
 import Navbar from "../components/Navbar"
 
 const Library = ({ libraryBooks, setLibraryBooks, reloader, reloadShelves }) => {
+  document.title = 'MyReads - My Library'
+
   const [booksLoaded, setBooksLoaded] = useState(false)
 
   useEffect(() => {

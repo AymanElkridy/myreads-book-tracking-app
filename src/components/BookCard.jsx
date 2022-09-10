@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { update } from "../BooksAPI"
 
@@ -24,7 +25,7 @@ const BookCard = ({ shelf, page, title, authors, thumbnail, bookId, reloadShelve
     reloadShelves()
   }
 
-  const shelves = [
+  const SHELVES = [
     {shelf: 'currentlyReading', title: 'Reading', icon_text: 'pending', cases: ['library','search']},
     {shelf: 'wantToRead', title: 'Want to Read', icon_text: 'bookmark_add', cases: ['library','search']},
     {shelf: 'read', title: 'Read Already', icon_text: 'assignment_turned_in', cases: ['library','search']},
@@ -49,7 +50,7 @@ const BookCard = ({ shelf, page, title, authors, thumbnail, bookId, reloadShelve
         )}
       <ShelvesList id={`shelves-list-${bookId}`} className={buttonActive && 'active'} shelf={shelf}>
         <ul>
-          {shelves.filter(shelf => shelf.cases.includes(page)).map(shelf => {
+          {SHELVES.filter(shelf => shelf.cases.includes(page)).map(shelf => {
             return (
               <li className={shelf.shelf} key={`${bookId}_shelf_${shelf.shelf}`} onClick={() => changeShelves(bookId, shelf.shelf)}>
                 <span className="material-icons-outlined">
@@ -65,11 +66,17 @@ const BookCard = ({ shelf, page, title, authors, thumbnail, bookId, reloadShelve
         </ul>
       </ShelvesList>
       <ImgContainer>
-        <Img src={thumbnail}/>   
+        <Link to={'/book/' + bookId}>
+          <Img src={thumbnail} alt={title}/> 
+        </Link>  
       </ImgContainer>
       <Text>
-        <p className="title">{title}</p>
-        <p className="name">{authors.reduce((str, author, i, arr) => str += i === arr.length - 1 ? author : `${author}, `, '')}</p>
+        <Link to={'/book/' + bookId}>
+          <p className="title">{title}</p>
+        </Link> 
+        {authors && (
+          <p className="name">{authors.reduce((str, author, i, arr) => str += i === arr.length - 1 ? author : `${author}, `, '')}</p>
+        )}
       </Text>
     </Card>
   )
@@ -215,13 +222,17 @@ const Text = styled.div`
   padding: 4px 8px;
   font-size: 14px;
   color: var(--dark);
+  & a {
+    color: var(--dark);
+    text-decoration: none;
+  }
   & p {
     margin: 8px 0;
     width: fit-content;
-    cursor: pointer;
   }
   & .title {
     font-weight: 500;
+    cursor: pointer;
   }
 `
 

@@ -6,6 +6,8 @@ import SearchBar from "../components/SearchBar"
 import SearchResults from "../components/SearchResults"
 
 const Search = ({ libraryBooks, reloadShelves }) => {
+  document.title = 'MyReads - Search'
+
   const [searchBooks, setSearchBooks] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
 

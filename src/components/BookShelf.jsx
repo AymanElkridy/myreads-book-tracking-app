@@ -16,7 +16,7 @@ const BookShelf = ({ title, books, reloadShelves }) => {
             page='library'
             title={book.title}
             authors={book.authors}
-            thumbnail={book.imageLinks.thumbnail ? book.imageLinks.thumbnail : 'https://via.placeholder.com/160x200'}
+            thumbnail={book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/160x200'}
             bookId={book.id}
             reloadShelves={reloadShelves}/>)}
         </Wrapper>
