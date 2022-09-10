@@ -19,7 +19,7 @@ const SearchResults = ({ books, library, reloadShelves }) => {
           </Wrapper>
         ) : (
           <Wrapper>
-            <h2>No Search Results</h2>
+            <h2 className="no-results">No Search Results</h2>
           </Wrapper>
         )}
       </Wrapper>
@@ -53,6 +53,9 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding: 32px 64px;
+  & .no-results {
+    text-align: center;
+  }
 `
 
 export default SearchResults

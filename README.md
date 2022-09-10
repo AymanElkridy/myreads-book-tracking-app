@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Book Tracking App - MyReads
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+MyReads is an app where you can search for books, add them to your library, and track your reading. Made using React.js framework.
 
-## Available Scripts
+## Installation
+1. Clone the repository by running the following command:
+```
+git clone https://github.com/AymanElkridy/myreads-book-tracking-app.git
+```
+2. Install the required dependencies by running the following command inside the working directory:
+```
+npm install
+```
+3. Start the project by running the following command:
+```
+npm run start
+```
 
-In the project directory, you can run:
+## Used dependencies
+- react
+- react-dom
+- react-router-dom
+- react-scripts
+- styled-components
+- web-vitals
+- @testing libraries
 
-### `npm start`
+## Routes
+1. `/`: This is the main route. It's named "My Library", and it shows the books currently added to any shelf in your library.
+2. `/search`: This shows a search bar that updates the page with search results with every time it changes.
+3. `/book/:bookId`: This shows all the available details about a single book using its id.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Credits
+This project was done from scratch by Ayman Abdelwahed (AymanElkridy), only externally depending on libraries, documentations and developers community help, for the purpose of submitting as the graduation project in Udacity's React Development Cross-Skilling Nanodegree. The [Books API](https://reactnd-books-api.udacity.com) and the [BooksAPI file](./src/BooksAPI.js) are provided by Udacity. Fonts & Icons are made available by [Google Fonts](fonts.google.com/about).
+All the materials in this project are subject to open-source policy, available and free to use for and by anyone.
