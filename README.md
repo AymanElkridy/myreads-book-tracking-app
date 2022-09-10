@@ -23,8 +23,6 @@ npm run start
 - react-router-dom
 - react-scripts
 - styled-components
-- web-vitals
-- @testing libraries
 
 ## Routes
 1. `/`: This is the main route. It's named "My Library", and it shows the books currently added to any shelf in your library.
